@@ -8,7 +8,7 @@ console.log('page running')
 //     ]
 
 // }
-
+//cards: [resources/cards/barb.png, resources/cards/beetlejuice.png, resources/cards/lydia.png, resources/cards/missargentina.png, resources/cards/sandsnake.png, resources/cards/guide.png],
 
 $('#start').on('click', ()=>{
     console.log('button works')
@@ -18,10 +18,7 @@ $('#start').on('click', ()=>{
 $('.cards').on('click', ()=>{
     console.log('card clicked')
 
-
 })
-
-
 
 const game = {
     cards: [],
@@ -32,15 +29,22 @@ const game = {
         const interval = setInterval(()=>{
             this.time++
             $timer.text(`Time: ${this.time}`);
-        }, 1000)
-        if(this.time === 30){
-            clearInterval(interval);
-        }
+            if(this.time === 30){
+                clearInterval(interval);
+            }
+        }, 1000) 
     },
     flipCard(){
 
 
+    },
+    checkForMatch(){
+
+    },
+    resetGame(){
+        
     }
+
 }
 
 
