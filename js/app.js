@@ -14,13 +14,15 @@ function bindClickToCards () {
 
 function flipCard (e) {
 
+
+    //disables click after game is over.
     if(game.gameEnded){
         game.gameEnded = true;
         return
     }
     
-    
     $(e.target).parent().toggleClass('active')
+
 
     //checking for matches + flips cards when clicked + keeps matches up
     if(!game.firstCardFlipped) {
@@ -59,10 +61,12 @@ const game = {
         const interval = setInterval(()=>{
             this.time++
             $timer.text(`Time: ${this.time}`);
-            if(this.time === 30){
+            if(this.time === 10){
                 this.gameEnded = true;
                 clearInterval(interval);
-                // alert('Game Over')
+                $('.cards').removeClass('active');
+                $('.cards').removeClass('flipped');
+                alert('Game Over')
             }
         }, 1000) 
     },
@@ -72,6 +76,7 @@ const game = {
         this.secondCardFlipped='';
         $('.cards').removeClass('active')
         bindClickToCards()
+
     },
 
     checkForMatch(card1, card2){
@@ -80,11 +85,16 @@ const game = {
 
     },
     resetGame(){
+
         //if the timer hits 30 and not all the cards are flipped, reset cards
         //deactivate/reactivate
+        //if game over is true, then reset flip cards
+        
+       
            
     },
     shuffleCards(){
+
         //when new game is initiated, shuffle the cards
 
     }
@@ -96,6 +106,11 @@ bindClickToCards()
 
 
 
-
+// $('.cards').on('click', () => {
+//     if(!game.gameInProgress) {
+//         game.setGameTimer()
+//         game.gameInProgress = true
+//     }
+// })
 
 
