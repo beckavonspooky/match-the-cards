@@ -40,6 +40,10 @@ header{
     transform: rotateY(180deg);
 }
 
+.cards.flipped {
+    transform: rotateY(180deg);
+}
+
 
 .front{
     width: 100%;

@@ -5,11 +5,11 @@ $('#start').on('click', ()=>{
     game.setGameTimer()
 })
 
+
 function bindClickToCards () {
     $('.cards').on('click', flipCard)
 
 }
-
 
 function flipCard (e) {
    
@@ -21,18 +21,20 @@ function flipCard (e) {
     } else {
         game.secondCardFlipped = e.target.parentNode.dataset.name
         game.checkForMatch(game.firstCardFlipped, game.secondCardFlipped)
-        // $('.cards').unbind('click', flipCard)
+        $('.cards').unbind('click', flipCard)
         if(game.firstCardFlipped === game.secondCardFlipped){
             console.log('Cards are a MATCH!')
+            $(`div[data-name=${game.firstCardFlipped}]`).addClass('flipped')
             game.firstCardFlipped='';
             game.secondCardFlipped='';
-            // $('.cards').removeClass('active')
+            bindClickToCards()
         } 
         else if(game.firstCardFlipped !== '' && game.secondCardFlipped !== '') {
             console.log('NOT a match')
-
-            setTimeout(() => game.resetCards(), 1000)
+            setTimeout(() => game.resetCards(), 1000)  
+            return 
         }
+        
         
     }
 }
