@@ -5,30 +5,42 @@ $('#start').on('click', ()=>{
     game.setGameTimer()
 })
 
-$('.cards').on('click', (e)=>{
-    // console.log('card clicked')
-    console.log(e.target.name)
+function bindClickToCards () {
+    $('.cards').on('click', flipCard)
+
+}
+
+
+function flipCard (e) {
+   
+    $(e.target).parent().toggleClass('active')
+
+    //checking for matches
     if(!game.firstCardFlipped) {
-        game.firstCardFlipped = e.target.name
+        game.firstCardFlipped = e.target.parentNode.dataset.name
     } else {
-        game.secondCardFlipped = e.target.name
+        game.secondCardFlipped = e.target.parentNode.dataset.name
         game.checkForMatch(game.firstCardFlipped, game.secondCardFlipped)
+        // $('.cards').unbind('click', flipCard)
         if(game.firstCardFlipped === game.secondCardFlipped){
             console.log('Cards are a MATCH!')
             game.firstCardFlipped='';
             game.secondCardFlipped='';
+            // $('.cards').removeClass('active')
         } 
-        else {
-            game.firstCardFlipped != game.secondCardFlipped
+        else if(game.firstCardFlipped !== '' && game.secondCardFlipped !== '') {
             console.log('NOT a match')
-            game.firstCardFlipped='';
-            game.secondCardFlipped='';
+
+            setTimeout(() => game.resetCards(), 1000)
         }
+        
     }
-    
-})
+}
 
-
+// .cards:active{
+//     transform: rotateY(180deg);
+//     apply class element to e.target
+//     addclass or toggle class $('.cards:active').toggle();
 
 
 const game = {
@@ -47,22 +59,25 @@ const game = {
             }
         }, 1000) 
     },
+
+    resetCards() {
+        this.firstCardFlipped='';
+        this.secondCardFlipped='';
+        $('.cards').removeClass('active')
+        bindClickToCards()
+    },
+
     flipCard(){
         
         //if the first card is clicked, flip card, and keep the card from flipping
         //if the second card is clicked, flip card, and keep the card from flipping back
-
-        
 
     },
     checkForMatch(card1, card2){
         //compare two flipped cards
         //if first card flipped image === second card flipped image, keep cards frontside
         //esle reset to backside
-        // console.log(card1, card2, 'THESE ARE YO CARDS!!!!')
-
-        
-        
+        console.log(card1, card2, 'THESE ARE YO CARDS!!!!')
 
     },
     resetGame(){
@@ -75,7 +90,7 @@ const game = {
 
 }
 
-
+bindClickToCards()
 
 
 

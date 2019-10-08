@@ -36,29 +36,26 @@ header{
     transform-style: preserve-3d;
     transition: all 0.5s ease;
 }
-/* .cards:active{
+.cards.active{
     transform: rotateY(180deg);
 }
-.card.flipped{
-    transform: rotateY(180deg); 
-} */
+
+
 .front{
     width: 100%;
     height: 100%;
     padding: 20px;
     border: 4px solid white;
     position: absolute; 
-    backface-visibility: hidden;  
-    /* transform: rotateY(180deg); */
+    transform: rotateY(180deg);
 
 } .backside{
     width: 205px;
     height: 235px;
     padding: 20px;
     border: 4px solid white;
-    backface-visibility: hidden; 
-    position: absolute;
-    transform: rotateY(180deg);
+    position: absolute; 
+    /* transform: rotateY(180deg); */
     
 }
 img{
@@ -67,25 +64,3 @@ img{
     height: 235px;
     position: absolute;
 }
-
-/* .front-card {
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    border: 4px solid white;
-    position: absolute;
-    background-image: url('../resources/cards/beetlejuice.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.back-card {
-    width: 205px;
-    height: 235px;
-    padding: 20px;
-    border: 4px solid white;
-    background-image: url('../resources/cards/back of card.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-
-} */
