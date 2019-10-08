@@ -1,4 +1,5 @@
 
+
 $('#start').on('click', ()=>{
     console.log('button works')
 
@@ -12,10 +13,16 @@ function bindClickToCards () {
 }
 
 function flipCard (e) {
-   
+
+    if(game.gameEnded){
+        game.gameEnded = true;
+        return
+    }
+    
+    
     $(e.target).parent().toggleClass('active')
 
-    //checking for matches
+    //checking for matches + flips cards when clicked + keeps matches up
     if(!game.firstCardFlipped) {
         game.firstCardFlipped = e.target.parentNode.dataset.name
     } else {
@@ -33,16 +40,11 @@ function flipCard (e) {
             console.log('NOT a match')
             setTimeout(() => game.resetCards(), 1000)  
             return 
+            
         }
-        
         
     }
 }
-
-// .cards:active{
-//     transform: rotateY(180deg);
-//     apply class element to e.target
-//     addclass or toggle class $('.cards:active').toggle();
 
 
 const game = {
@@ -51,13 +53,16 @@ const game = {
     firstCardFlipped: '',
     secondCardFlipped: '',
     flippedCard: false,
+    gameEnded: false, 
     setGameTimer(){
         const $timer = $('.timer');
         const interval = setInterval(()=>{
             this.time++
             $timer.text(`Time: ${this.time}`);
             if(this.time === 30){
+                this.gameEnded = true;
                 clearInterval(interval);
+                // alert('Game Over')
             }
         }, 1000) 
     },
@@ -69,24 +74,18 @@ const game = {
         bindClickToCards()
     },
 
-    flipCard(){
-        
-        //if the first card is clicked, flip card, and keep the card from flipping
-        //if the second card is clicked, flip card, and keep the card from flipping back
-
-    },
     checkForMatch(card1, card2){
-        //compare two flipped cards
-        //if first card flipped image === second card flipped image, keep cards frontside
-        //esle reset to backside
+        
         console.log(card1, card2, 'THESE ARE YO CARDS!!!!')
 
     },
     resetGame(){
         //if the timer hits 30 and not all the cards are flipped, reset cards
-        
+        //deactivate/reactivate
+           
     },
     shuffleCards(){
+        //when new game is initiated, shuffle the cards
 
     }
 
