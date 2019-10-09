@@ -14,6 +14,12 @@ $('#reset').on('click', ()=>{
 
 })
 
+let popUpBox = document.getElementById("pop-up-box");
+let popUpText = document.getElementById("pop-up-text");
+
+document.getElementById("playAgain").addEventListener("click", function () {
+	location.reload();
+});
 
 //binds cards on click
 function bindClickToCards () {
@@ -58,7 +64,8 @@ function flipCard (e) {
 
 
 const game = {
-    cards: [],
+
+    rounds: 1,
     time: 10,
     firstCardFlipped: '',
     secondCardFlipped: '',
@@ -79,7 +86,8 @@ const game = {
             if(this.time === 0){
                 this.gameEnded = true;
                 clearInterval(interval); // stops the interval
-                alert('Game Over')
+                // alert('Game Over')
+                popUpBox.style.display = "block";
                 this.round++
               } else {
                 this.time--
@@ -87,6 +95,10 @@ const game = {
               $timer.text(`Time: ${this.time}`)
             
         }, 1000) 
+    },
+    flipCard(){
+        
+
     },
 
     resetCards() {
@@ -112,6 +124,8 @@ const game = {
         // var $cards = $('.cards).detach()
         // $('.card-board').append(cards[add index #])
         // bindClicktocards()
+
+
     },
 
 }
