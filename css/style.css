@@ -21,8 +21,10 @@ body{
 .title-start {
     display: flex;
     width: 55%;
+    padding: 5%;
     flex-direction: column;
-    background-color: blue;
+    border: 5px solid #32cd32;
+    color: whitesmoke;
 }
 header{
     /* width: 86px;
@@ -37,17 +39,30 @@ header{
 button{
     width: 100px;
     height: 100px;
-    margin: 50px;
+    /* margin: 50px; */
+    margin-left: 85px;
+    padding: 5%;
     border-radius: 50px;
     font-size: inherit;
-    background-color:red;
+    background-color: #238023;
+}
+p{
+    font-family: monospace;
+    font-size: 20px;
+    text-align: center;
+    background-color: #861e1e;
+
 }
 .timer{
-    width: 86px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     margin: 50px;
-    font-size: inherit;
-    background-color: yellow;
+    margin-left: 80px;
+    border-radius: 50px;
+    font-size: 20px;
+    padding: 24px;
+    text-align: center;
+    background-color: #238023;
 }
 .card-board{
     margin: auto;
@@ -96,8 +111,8 @@ button{
 	color: linen;
 	display: none;
 	position: absolute;
-    top: 45%;
-    left: 45%;
+    top: 49%;
+    left: 39%;
     transform: translate(-50%, -50%);
 	text-align: center;
 	font-size: 50px;
@@ -109,12 +124,12 @@ button{
 
 #playAgain {
 	width: 200px;
-    height: 68px;
+    height: 85px;
     color: black;
 	font-size: 20px;
     position: absolute;
-    top: -110px;
-	right: 10px;
+    top: -60px;
+	right: 46px;
 	font-family: 'Monoton', cursive;
 	background-image: url("https://i.imgur.com/DdXwCRT.png");
 }
