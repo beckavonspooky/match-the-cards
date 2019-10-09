@@ -2,9 +2,11 @@
 
 //starts the game
 $('#start').on('click', ()=>{
-    console.log('button works')
-
-    game.setGameTimer()
+    
+    if(game.gameEnded) {
+        console.log('STARTING GAME')
+        game.setGameTimer()
+    }
     
 })
 //resets the cards facedown
@@ -70,8 +72,9 @@ const game = {
     firstCardFlipped: '',
     secondCardFlipped: '',
     flippedCard: false,
-    gameEnded: false, 
+    gameEnded: true, 
     setGameTimer(){
+        this.gameEnded = false
         const $timer = $('.timer');
         const interval = setInterval(()=>{
             // this.time++
