@@ -67,3 +67,8 @@ img{
     height: 235px;
     position: absolute;
 }
+button{
+    width: 50px;
+    height: 35px;
+    background-color: red;
+}

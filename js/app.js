@@ -1,19 +1,27 @@
 
 
+//starts the game
 $('#start').on('click', ()=>{
     console.log('button works')
 
     game.setGameTimer()
+    
+})
+//resets the cards facedown
+$('#reset').on('click', ()=>{
+        $('.cards').removeClass('active');
+        $('.cards').removeClass('flipped');
+
 })
 
 
+//binds cards on click
 function bindClickToCards () {
     $('.cards').on('click', flipCard)
 
 }
 
 function flipCard (e) {
-
 
     //disables click after game is over.
     if(game.gameEnded){
@@ -51,7 +59,7 @@ function flipCard (e) {
 
 const game = {
     cards: [],
-    time: 0,
+    time: 10,
     firstCardFlipped: '',
     secondCardFlipped: '',
     flippedCard: false,
@@ -59,15 +67,25 @@ const game = {
     setGameTimer(){
         const $timer = $('.timer');
         const interval = setInterval(()=>{
-            this.time++
-            $timer.text(`Time: ${this.time}`);
-            if(this.time === 10){
+            // this.time++
+            // $timer.text(`Time: ${this.time}`);
+            // if(this.time === 10){
+            //     this.gameEnded = true;
+            //     clearInterval(interval);
+            //     // $('.cards').removeClass('active');
+            //     // $('.cards').removeClass('flipped');
+            //     alert('Game Over')
+            // }
+            if(this.time === 0){
                 this.gameEnded = true;
-                clearInterval(interval);
-                $('.cards').removeClass('active');
-                $('.cards').removeClass('flipped');
+                clearInterval(interval); // stops the interval
                 alert('Game Over')
-            }
+                this.round++
+              } else {
+                this.time--
+              }
+              $timer.text(`Time: ${this.time}`)
+            
         }, 1000) 
     },
 
@@ -84,33 +102,19 @@ const game = {
         console.log(card1, card2, 'THESE ARE YO CARDS!!!!')
 
     },
-    resetGame(){
+    gameOver(){
 
-        //if the timer hits 30 and not all the cards are flipped, reset cards
-        //deactivate/reactivate
-        //if game over is true, then reset flip cards
         
-       
-           
     },
     shuffleCards(){
-
-        //when new game is initiated, shuffle the cards
-
-    }
+        
+        // reset gameEnded to false
+        // var $cards = $('.cards).detach()
+        // $('.card-board').append(cards[add index #])
+        // bindClicktocards()
+    },
 
 }
-
 bindClickToCards()
-
-
-
-
-// $('.cards').on('click', () => {
-//     if(!game.gameInProgress) {
-//         game.setGameTimer()
-//         game.gameInProgress = true
-//     }
-// })
 
 
