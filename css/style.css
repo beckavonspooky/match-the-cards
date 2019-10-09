@@ -8,13 +8,16 @@
 body{
     height: 100vh;
     display: flex;
-    background-image: url(https://i.imgur.com/ZvmYyS1.png);
+    background-image: url(https://kunstportal.art/wp-content/uploads/2018/05/10317255.jpg);
 }
 .container{
     margin: auto;
+    padding: 25px;
+    padding-right: 40px;
     display: flex;
     flex-direction: column;
     flex-flow: row-reverse;
+    
 
 }
 .title-start {
@@ -23,15 +26,12 @@ body{
     padding: 1%;
     margin-right: 30px;
     flex-direction: column;
-    border: 5px solid white;
+    /* border: 5px solid white; */
     color: whitesmoke;
     background-color: #8c2929;
    
 }
 header{
-    /* width: 86px;
-    height: 50px; */
-    /* margin: 50px; */
     font-family: monospace;
     font-size: 50px;
     text-align: center;
@@ -41,12 +41,14 @@ header{
 button{
     width: 100px;
     height: 100px;
-    /* margin: 50px; */
-    margin-left: 85px;
+    margin-left: 78px;
     padding: 5%;
     border-radius: 50px;
-    font-size: inherit;
+    font-family: monospace;
+    font-size: 25px;
+    text-align: center;
     background-color: #32cd32;
+    
 }
 p{
     font-family: monospace;
@@ -58,13 +60,17 @@ p{
 .timer{
     width: 100px;
     height: 100px;
-    margin: 50px;
+    margin: 26px;
     margin-left: 80px;
     border-radius: 50px;
-    font-size: 20px;
-    padding: 24px;
+    font-size: 25px;
+    padding: 17px;
+    padding-top: 21px;
+    font-family: monospace;
     text-align: center;
+    color: black;
     background-color: #32cd32;
+    
 }
 .card-board{
     margin: auto;
