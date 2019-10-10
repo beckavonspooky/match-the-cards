@@ -9,7 +9,7 @@ My memory game is a single player game, and immerses the player in audio and vis
 
 ## Getting Started
 
-// insert wireframe: game in progress //
+![Image of game play screen](https://i.imgur.com/XEOFk1x.png)
 
 The player begins the game by clicking on the start button.
 Once the start button is clicked, a 30 second timer will start to count down. 
@@ -31,7 +31,7 @@ The player can then click the “Play Again” button to try their luck once mor
 - Audacity
 - Adobe UX
 
-//insert wireframe: game over //
+![Image of game play screen](https://i.imgur.com/XEOFk1x.png)
  
 ## Next Steps:
 - Create new levels of difficulty
