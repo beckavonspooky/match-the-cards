@@ -48,7 +48,7 @@ button{
     font-size: 25px;
     text-align: center;
     background-color: #32cd32;
-    border: none;
+    outline: none;
     
 }
 p{
@@ -136,5 +136,6 @@ p{
     position: absolute;
     top: -60px;
 	right: 46px;
-	font-family: monospace;
+    font-family: monospace;
+    outline: none;
 }

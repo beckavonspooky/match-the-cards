@@ -21,10 +21,12 @@ let popUpText = document.getElementById("pop-up-text");
 document.getElementById("playAgain").addEventListener("click", function () {
     $('.cards').removeClass('active');
     $('.cards').removeClass('flipped');
+    popUpBox.style.display = 'none';
     themeAudio.pause(); // stop theme music
     laughAudio.play(); // start game over music
-    game.shuffleCards();
-    location.reload();
+    game.shuffleCards($('.cards'));
+    bindClickToCards();
+    // location.reload();
 });
 
 
@@ -75,13 +77,13 @@ function flipCard (e) {
 
 //game object//
 const game = {
-    deck: ['resources/cards/barb.png', 'resources/cards/beetlejuice.png','resources/cards/lydia.png', 'resources/cards/missargentina.png','resources/cards/sandsnake.png','resources/cards/guide.png','resources/cards/barb.png', 'resources/cards/beetlejuice.png','resources/cards/lydia.png', 'resources/cards/missargentina.png','resources/cards/sandsnake.png','resources/cards/guide.png'],
     time: 10,
     firstCardFlipped: '',
     secondCardFlipped: '',
     flippedCard: false,
     gameEnded: true, 
     setGameTimer(){
+        this.time = 10
         this.gameEnded = false
         themeAudio.play(); //starts theme music
         const $timer = $('.timer');
@@ -114,20 +116,28 @@ const game = {
         console.log(card1, card2, 'THESE ARE YO CARDS!!!!')
 
     },
-    shuffleCards(){
-    
-        arrayShuffle = function (deck){
-            let newPos;
-            let temp;
-            for(let i = arr.length -1; i >0; i--){
-                newPos = Math.floor(Math.random() * (i + 1));
-                temp = arr[i];
-                arr[i]= arr[newPos];
-                arr[newPos] = temp;
-            }
-            return deck;
-        };
+    shuffleCards(array){
+        console.log("shuffling")
+        let m = array.length;
+        let t;
+        let i;
 
+        // While there remain elements to shuffle…
+        while (m) {
+
+            // Pick a remaining element…
+            i = Math.floor(Math.random() * m--);
+
+            // And swap it with the current element.
+            t = array[m];
+            array[m] = array[i];
+            array[i] = t;
+        }
+        $('.card-board').empty()
+        for(let i= 0; i < array.length; i++){
+            $('.card-board').append(array[i]);
+        }
+       
 
     },
 
