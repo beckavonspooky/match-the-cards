@@ -105,8 +105,7 @@ const game = {
         this.secondCardFlipped='';
         $('.cards').removeClass('active');
         bindClickToCards();
-       
-
+    
     },
 
     checkForMatch(card1, card2){
@@ -141,5 +140,3 @@ const game = {
 
 }
 bindClickToCards()
-
-
