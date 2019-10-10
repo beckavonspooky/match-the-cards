@@ -1,41 +1,45 @@
 
-//music tracks
+//music tracks//
 
 let themeAudio = new Audio("audio/beetlejuice-main-title-edit.mp3");
+let laughAudio = new Audio("audio/laugh-long.mp3")
 
 
-//starts the game
+
+
+//starts the game//
 
 $('#start').on('click', ()=>{
     if(game.gameEnded) {
         console.log('STARTING GAME');
         game.setGameTimer();
-        
     }
     
 })
 
-//reset game//
+//reset game pop up//
 let popUpBox = document.getElementById("pop-up-box");
 let popUpText = document.getElementById("pop-up-text");
 
 document.getElementById("playAgain").addEventListener("click", function () {
-    
     $('.cards').removeClass('active');
     $('.cards').removeClass('flipped');
+    themeAudio.pause();
+    laughAudio.play();
 	location.reload();
 });
 
-//binds cards on click
+//binds cards on click//
 function bindClickToCards () {
     $('.cards').on('click', flipCard)
    
 
 }
+//flip the cards//
 
 function flipCard (e) {
 
-    //disables click after game is over.
+    //disables click on cards after game is over.
     if(game.gameEnded){
         game.gameEnded = true;
         return
@@ -68,9 +72,8 @@ function flipCard (e) {
     }
 }
 
-
+//game object//
 const game = {
-
     time: 10,
     firstCardFlipped: '',
     secondCardFlipped: '',
@@ -85,6 +88,8 @@ const game = {
                 this.gameEnded = true;
                 clearInterval(interval); // stops the interval
                 popUpBox.style.display = "block"; //game over
+                themeAudio.pause();
+                laughAudio.play();
               } else {
                 this.time--
               }
@@ -115,6 +120,12 @@ const game = {
 
 
     },
+    // gameOver(){
+    //     if(this.gameEnded === true && this.time === 0) {
+    //         themeAudio.pause()
+    //         laughAudio.play()
+    //     }
+    // }
 
 }
 bindClickToCards()
