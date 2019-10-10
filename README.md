@@ -12,7 +12,7 @@ My memory game is a single player game, and immerses the player in audio and vis
 ![Image of game play screen](https://i.imgur.com/XEOFk1x.png)
 
 The player begins the game by clicking on the start button.
-Once the start button is clicked, a 30 second timer will start to count down. 
+Once the start button is clicked, a 20 second timer will start to count down. 
 Audio effects intensify the experience as the timer counts down.
 The player can then click on any card on the board to reveal a character from the film.
 Once the first card is flipped, the player may select a second card to flip and reveal the character.
@@ -31,7 +31,7 @@ The player can then click the “Play Again” button to try their luck once mor
 - Audacity
 - Adobe UX
 
-![Image of game play screen](https://i.imgur.com/XEOFk1x.png)
+![Image of game play screen](https://i.imgur.com/s14PmuV.png)
  
 ## Next Steps:
 - Create new levels of difficulty

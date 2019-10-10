@@ -14,7 +14,7 @@ $('#start').on('click', ()=>{
     
 })
 
-//reset game pop up//
+//reset game pop up box//
 let popUpBox = document.getElementById("pop-up-box");
 let popUpText = document.getElementById("pop-up-text");
 
@@ -24,17 +24,15 @@ document.getElementById("playAgain").addEventListener("click", function () {
     popUpBox.style.display = 'none';
     themeAudio.pause(); // stop theme music
     laughAudio.play(); // start game over music
-    game.shuffleCards($('.cards'));
+    game.shuffleCards($('.cards')); //shuffles the cards to begin a new game
     bindClickToCards();
-    // location.reload();
+    laughAudio.pause();
 });
 
 
 //binds cards on click//
 function bindClickToCards () {
     $('.cards').on('click', flipCard);
-    
-
 
 }
 //flip the cards//
@@ -77,13 +75,13 @@ function flipCard (e) {
 
 //game object//
 const game = {
-    time: 10,
+    time: 20,
     firstCardFlipped: '',
     secondCardFlipped: '',
     flippedCard: false,
     gameEnded: true, 
     setGameTimer(){
-        this.time = 10
+        this.time = 20
         this.gameEnded = false
         themeAudio.play(); //starts theme music
         const $timer = $('.timer');
@@ -125,13 +123,13 @@ const game = {
         // While there remain elements to shuffle…
         while (m) {
 
-            // Pick a remaining element…
-            i = Math.floor(Math.random() * m--);
+        // Pick a remaining element…
+        i = Math.floor(Math.random() * m--);
 
-            // And swap it with the current element.
-            t = array[m];
-            array[m] = array[i];
-            array[i] = t;
+        // And swap it with the current element.
+        t = array[m];
+        array[m] = array[i];
+        array[i] = t;
         }
         $('.card-board').empty()
         for(let i= 0; i < array.length; i++){
