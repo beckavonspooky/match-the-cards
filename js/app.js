@@ -1,31 +1,35 @@
 
+//music tracks
+
+let themeAudio = new Audio("audio/beetlejuice-main-title-edit.mp3");
+
 
 //starts the game
+
 $('#start').on('click', ()=>{
-    
     if(game.gameEnded) {
-        console.log('STARTING GAME')
-        game.setGameTimer()
+        console.log('STARTING GAME');
+        game.setGameTimer();
+        
     }
     
 })
-//resets the cards facedown
-$('#reset').on('click', ()=>{
-        $('.cards').removeClass('active');
-        $('.cards').removeClass('flipped');
 
-})
-
+//reset game//
 let popUpBox = document.getElementById("pop-up-box");
 let popUpText = document.getElementById("pop-up-text");
 
 document.getElementById("playAgain").addEventListener("click", function () {
+    
+    $('.cards').removeClass('active');
+    $('.cards').removeClass('flipped');
 	location.reload();
 });
 
 //binds cards on click
 function bindClickToCards () {
     $('.cards').on('click', flipCard)
+   
 
 }
 
@@ -67,7 +71,6 @@ function flipCard (e) {
 
 const game = {
 
-    rounds: 1,
     time: 10,
     firstCardFlipped: '',
     secondCardFlipped: '',
@@ -75,23 +78,13 @@ const game = {
     gameEnded: true, 
     setGameTimer(){
         this.gameEnded = false
+        themeAudio.play();
         const $timer = $('.timer');
         const interval = setInterval(()=>{
-            // this.time++
-            // $timer.text(`Time: ${this.time}`);
-            // if(this.time === 10){
-            //     this.gameEnded = true;
-            //     clearInterval(interval);
-            //     // $('.cards').removeClass('active');
-            //     // $('.cards').removeClass('flipped');
-            //     alert('Game Over')
-            // }
             if(this.time === 0){
                 this.gameEnded = true;
                 clearInterval(interval); // stops the interval
-                // alert('Game Over')
-                popUpBox.style.display = "block";
-                this.round++
+                popUpBox.style.display = "block"; //game over
               } else {
                 this.time--
               }
@@ -99,11 +92,7 @@ const game = {
             
         }, 1000) 
     },
-    flipCard(){
-        
-
-    },
-
+    
     resetCards() {
         this.firstCardFlipped='';
         this.secondCardFlipped='';
@@ -116,10 +105,6 @@ const game = {
         
         console.log(card1, card2, 'THESE ARE YO CARDS!!!!')
 
-    },
-    gameOver(){
-
-        
     },
     shuffleCards(){
         
