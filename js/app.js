@@ -2,7 +2,7 @@
 //music tracks//
 
 let themeAudio = new Audio("audio/beetlejuice-main-title-edit.mp3");
-let laughAudio = new Audio("audio/laugh-long.mp3")
+let laughAudio = new Audio("audio/laugh-long.mp3");
 
 //starts the game//
 
@@ -54,9 +54,9 @@ function flipCard (e) {
     } else {
         game.secondCardFlipped = e.target.parentNode.dataset.name
         game.checkForMatch(game.firstCardFlipped, game.secondCardFlipped)
-        $('.cards').unbind('click', flipCard)
+        $('.cards').unbind('click', flipCard);
             if(game.firstCardFlipped === game.secondCardFlipped){
-                console.log('Cards are a MATCH!')
+                console.log('Cards are a MATCH!');
                 $(`div[data-name=${game.firstCardFlipped}]`).addClass('flipped')
                 game.firstCardFlipped='';
                 game.secondCardFlipped='';
@@ -64,8 +64,8 @@ function flipCard (e) {
            
             } 
             else if(game.firstCardFlipped !== '' && game.secondCardFlipped !== '') {
-                console.log('NOT a match')
-                setTimeout(() => game.resetCards(), 1000)  
+                console.log('NOT a match');
+                setTimeout(() => game.resetCards(), 1000);
                 return 
                 
             }
@@ -95,7 +95,7 @@ const game = {
               } else {
                 this.time--
               }
-              $timer.text(`Time: ${this.time}`)
+              $timer.text(`Time: ${this.time}`);
             
         }, 1000) 
     },
@@ -103,8 +103,8 @@ const game = {
     resetCards() {
         this.firstCardFlipped='';
         this.secondCardFlipped='';
-        $('.cards').removeClass('active')
-        bindClickToCards()
+        $('.cards').removeClass('active');
+        bindClickToCards();
        
 
     },
@@ -115,7 +115,7 @@ const game = {
 
     },
     shuffleCards(array){
-        console.log("shuffling")
+        console.log("shuffling");
         let m = array.length;
         let t;
         let i;
