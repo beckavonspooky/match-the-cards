@@ -75,13 +75,13 @@ function flipCard (e) {
 
 //game object//
 const game = {
-    time: 20,
+    time: 30,
     firstCardFlipped: '',
     secondCardFlipped: '',
     flippedCard: false,
-    gameEnded: true, 
+    gameEnded: true,
     setGameTimer(){
-        this.time = 20
+        this.time = 30
         this.gameEnded = false
         themeAudio.play(); //starts theme music
         const $timer = $('.timer');
@@ -137,6 +137,7 @@ const game = {
        
 
     },
+    
 
 }
 bindClickToCards()

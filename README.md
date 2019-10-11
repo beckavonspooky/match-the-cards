@@ -11,8 +11,10 @@
 
 ![Image of game play screen](https://i.imgur.com/XEOFk1x.png)
 
+https://beckavonspooky.github.io/match-the-cards/
+
 *The player begins the game by clicking on the start button.
-*Once the start button is clicked, a 20 second timer will start to count down. 
+*Once the start button is clicked, a 30 second timer will start to count down. 
 *Audio effects intensify the experience as the timer counts down.
 *The player can then click on any card on the board to reveal a character from the film.
 *Once the first card is flipped, the player may select a second card to flip to match.
