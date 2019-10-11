@@ -36,6 +36,6 @@
  
 ## Next Steps:
 * Create new levels of difficulty
-* Add a points system
+* Add a points system or scoreboard
 * Add multiplayer system
 
