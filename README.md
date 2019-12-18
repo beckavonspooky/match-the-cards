@@ -32,7 +32,7 @@
 * Javascript Es6
 * jQuery
 * Audacity
-* Adobe UX
+* Adobe Xd
 
 ![Image of game play screen](https://i.imgur.com/s14PmuV.png)
  
