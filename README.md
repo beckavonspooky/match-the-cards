@@ -29,7 +29,7 @@
 
 * HTML
 * CSS
-* Javascript
+* Javascript Es6
 * jQuery
 * Audacity
 * Adobe UX
